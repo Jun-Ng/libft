@@ -16,8 +16,6 @@
 
 */
 
-#include <stdio.h>
-
 static unsigned int	count_elements(char const *s, char c)
 {
 	unsigned int	n;
@@ -45,49 +43,39 @@ static unsigned int	count_strlen(char const *s, char c)
 	return (n);
 }
 
-static void	free_all(char **s)
+static char	**free_all(char **s, int n)
 {
-	// while (s && *s)
-	// 	free(*s++);
-	printf("%p\n", s);
-	// free(s);
+	while (s && n > -1)
+		free(s[n--]);
+	free(s);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	unsigned int		n_elements;
-	unsigned int		s_len;
-	int					m_len;
+	int					n;
+	int					y;
 	char				**arr;
 
-	n_elements = count_elements(s, c);
-	arr = malloc((sizeof(arr) * n_elements) + 1);
+	arr = malloc((sizeof(char *) * (count_elements(s, c) + 1)));
 	if (!arr)
 		return (0);
-	m_len = 0;
+	n = 0;
 	while (*s)
 	{
 		while (*s && *s == c)
 			s++;
 		if (*s && *s != c)
 		{
-			s_len = count_strlen(s, c);
-			if (m_len < 2)
-				*arr = malloc(s_len + 1);
-			else
-				*arr = 0;
-			if (!*arr)
-			{
-				free_all(arr - m_len);
-				return (0);
-			}
-			strlcpy(*arr, s, s_len + 1);
-			m_len++;
-			arr++;
-			s += s_len;
+			y = 0;
+			arr[n] = malloc(count_strlen(s, c) + 1);
+			if (!arr[n])
+				return (free_all(arr, n));
+			while (*s && *s != c)
+				arr[n][y++] = *s++;
+			arr[n++][y] = 0;
 		}
 	}
-	*arr = 0;
-	arr -= n_elements;
+	arr[n] = 0;
 	return (arr);
 }

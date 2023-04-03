@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <fcntl.h>
 
 void	print_array_address_int(int *arr)
 {
@@ -28,15 +29,16 @@ void	print_array_address_str(char *arr)
 	printf("\n");
 }
 
+void	test_func(unsigned int i, char *c)
+{
+	printf("%i | %c | %p\n", i, *c, c);
+	*c = i + *c;
+}
+
 int	main(void)
 {
-	char	p[11] = "cc_aaba_aa";
-	char	*dst;
+	int	fd = open("foo.txt", O_RDWR);
 
-	dst = malloc(11);
-	printf("%s | %p\n", p, p);
-	ft_strlcpy(dst, p, 11);
-	printf("%s | %p\n", dst, dst);
-	free(dst);
+	ft_putnbr_fd(2147483647, fd);
 	return (0);
 }
