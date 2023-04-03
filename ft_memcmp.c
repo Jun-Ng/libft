@@ -1,14 +1,5 @@
 #include "libft.h"
 
-/*
-	compares byte string s1 against byte string s2
-	BOTH STRINGS ARE CONSIDERED TO BE N BYTES LONG
-
-	RETURN VALUES
-		- 0, if s1 == s2
-		- s1 - s2, s1 != s2
-		- 0 length strings, are always identical
-*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const char	*s1_p;

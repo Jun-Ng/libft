@@ -1,19 +1,5 @@
 #include "libft.h"
 
-/*
-	scenarios
-
-	1. both s1 && s2 are null;
-		return null
-	2. s2 is null
-		return (s1 + '0')
-
-	Errors
-		allocation fails
-			return null
-
-*/
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s3;

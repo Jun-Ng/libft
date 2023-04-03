@@ -39,11 +39,3 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-
-debug: re
-	cc $(CFLAGS) -fsanitize=address main.c $(NAME)
-	clear
-	./a.out
-	cat foo.txt | cat -e
-	@make fclean
-	@rm a.out
