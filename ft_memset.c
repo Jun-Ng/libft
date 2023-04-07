@@ -1,23 +1,17 @@
 #include "libft.h"
 
+/*
+** if string B is NULL, return (0);
+*/
+
 void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*dst;
-	size_t			str_len;
 
 	dst = b;
-	str_len = 0;
-
-	while (*dst++)
-		str_len++;
-	dst = b;
-	if (len <= str_len)
-	{
-		while (len)
-		{
-			*dst++ = c;
-			len--;
-		}
-	}
+	if (!b)
+		return (0);
+	while (len--)
+		*dst++ = (unsigned char)c;
 	return (b);
 }

@@ -3,18 +3,24 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s3;
-	int		tlen;
+	size_t	s1_len;
+	size_t	s2_len;
+	size_t	s3_len;
 
 	s3 = 0;
+	if (!s1 && !s2)
+		return (0);
 	if (!s1 || !ft_strlen(s1))
 		return (ft_strdup(s2));
 	if (!s2 || !ft_strlen(s2))
 		return (ft_strdup(s1));
-	tlen = ft_strlen(s1) + ft_strlen(s2) + 1;
-	s3 = malloc(tlen);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	s3_len = s1_len + s2_len + 1;
+	s3 = malloc(s3_len);
 	if (!s3)
 		return (0);
-	ft_strlcat(s3, s1, tlen);
-	ft_strlcat(s3, s2, tlen);
+	ft_strlcpy(s3, s1, s3_len);
+	ft_strlcpy(s3 + s1_len, s2, s3_len);
 	return (s3);
 }

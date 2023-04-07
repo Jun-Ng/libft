@@ -5,6 +5,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	const char	*s1_p;
 	const char	*s2_p;
 
+	if (!s1 || !s2 || !n)
+		return (0);
 	s1_p = s1;
 	s2_p = s2;
 	while (n--)

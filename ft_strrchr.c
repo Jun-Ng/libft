@@ -3,25 +3,18 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*r;
-	int		n;
+	int		l;
 
+	if (!s)
+		return (0);
+	l = ft_strlen(s) + 1;
 	r = 0;
-	n = 1;
-	while (*(s + 1) != 0 && s++ && n++)
-		;
-	if (!c)
-		r = (char *)++s;
-	else
+	while (--l > -1)
 	{
-		while (n)
+		if (s[l] == c)
 		{
-			if (*s == c)
-			{
-				r = (char *)s;
-				break ;
-			}
-			s--;
-			n--;
+			r = (char *)s + l;
+			break ;
 		}
 	}
 	return (r);

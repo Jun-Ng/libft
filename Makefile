@@ -1,5 +1,7 @@
 CFLAGS := -Wall -Wextra -Werror
 
+OPTIONS := -fsanitize=address
+
 SRCS := ft_isalpha.c ft_isdigit.c \
 		ft_isalnum.c ft_isascii.c \
 		ft_isprint.c ft_strlen.c \
@@ -18,11 +20,18 @@ SRCS := ft_isalpha.c ft_isdigit.c \
 		ft_putchar_fd.c ft_putstr_fd.c \
 		ft_putendl_fd.c ft_putnbr_fd.c
 
+LIST_SRCS :=	ft_lstnew.c ft_lstadd_front.c \
+				ft_lstsize.c ft_lstlast.c \
+				ft_lstadd_back.c ft_lstdelone.c \
+				ft_lstclear.c ft_lstmap.c
+
 OBJS := $(SRCS:.c=.o)
+
+LIST_OBJS := $(LIST_SRCS:.c=.o)
 
 NAME := libft.a
 
-.PHONY := clean fclean re $(NAME) all
+.PHONY := clean fclean re $(NAME) all bonus
 
 all: $(NAME)
 
@@ -33,9 +42,21 @@ $(OBJS): %.o: %.c
 	cc $(CFLAGS) -c $< -o $@ -I/.
 
 clean:
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(LIST_OBJS)
 
 fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(LIST_OBJS)
+	ar rcs $(NAME) $?
+
+$(LIST_OBJS): %.o: %.c
+	cc $(CFLAGS) -c $< -o $@ -I/.
+
+debug: re bonus
+	cc $(CFLAGS) $(OPTIONS) main.c $(NAME)
+	clear
+	./a.out
+	@make fclean

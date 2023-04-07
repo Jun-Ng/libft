@@ -1,29 +1,29 @@
 #include "libft.h"
 
+/*
+**	If needle is an empty string, haystack is returned; if needle occurs nowhere in haystack, NULL is
+**	returned; otherwise a pointer to the first character of the first occurrence of needle is returned.
+*/
+
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*h;
-	char	*n;
+	size_t		h;
+	size_t		n;
 
-	h = (char *)haystack;
-	n = (char *)needle;
-	while (len--)
+	if (!haystack || !*haystack || len < 1)
+		return (0);
+	if (!needle || !*needle)
+		return ((char *)haystack);
+	h = 0;
+	n = 0;
+	while (len-- && haystack[h])
 	{
-		if (*h == *n)
-		{
-			while (*n)
-			{
-				if (*n != *(h + (n - needle)))
-				{
-					n = (char *)needle;
-					break ;
-				}
-				n++;
-			}
-			if (*n == 0)
-				return (h);
-		}
-		h++;
+		if (haystack[h++] == needle[n])
+			n++;
+		else
+			n = 0;
+		if (n == ft_strlen(needle))
+			return ((char *)(haystack + h - n));
 	}
 	return (0);
 }

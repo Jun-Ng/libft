@@ -51,12 +51,27 @@ static char	**free_all(char **s, int n)
 	return (0);
 }
 
+static	unsigned int	assign_str(char	*arr, const char *s, char c)
+{
+	unsigned int	n;
+
+	n = 0;
+	while (*s && *s != c)
+	{
+		*arr++ = *s++;
+		n++;
+	}
+	*arr = 0;
+	return (n);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	int					n;
-	int					y;
-	char				**arr;
+	int		n;
+	char	**arr;
 
+	if (!s)
+		return (0);
 	arr = malloc((sizeof(char *) * (count_elements(s, c) + 1)));
 	if (!arr)
 		return (0);
@@ -67,15 +82,16 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s && *s != c)
 		{
-			y = 0;
 			arr[n] = malloc(count_strlen(s, c) + 1);
 			if (!arr[n])
 				return (free_all(arr, n));
-			while (*s && *s != c)
-				arr[n][y++] = *s++;
-			arr[n++][y] = 0;
+			s += assign_str(arr[n++], s, c);
 		}
 	}
 	arr[n] = 0;
 	return (arr);
 }
+
+/*
+	arr[n][y++] = *s++;
+*/

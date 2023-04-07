@@ -1,7 +1,7 @@
 #include "libft.h"
 
 /*
-	if s is NULL ( no address assigned )
+	if s is NULL == 0x0
 		return (0);
 	if malloc fails
 		return (0);
