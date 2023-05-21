@@ -1,13 +1,16 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 16:01:33 by junng             #+#    #+#             */
+/*   Updated: 2023/04/28 18:11:26 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-	if s is NULL == 0x0
-		return (0);
-	if malloc fails
-		return (0);
-	if (!f)
-		c = ft_strdup(s);
-*/
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

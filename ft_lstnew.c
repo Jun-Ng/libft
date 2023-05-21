@@ -1,9 +1,16 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 15:55:08 by junng             #+#    #+#             */
+/*   Updated: 2023/04/28 16:02:13 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-** Probably don't need to malloc for content,
-** Since they don't allow to use free for while malloc'ing for content fails
-*/
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {

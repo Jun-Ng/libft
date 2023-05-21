@@ -1,14 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 16:01:36 by junng             #+#    #+#             */
+/*   Updated: 2023/04/28 17:44:57 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-/*
-**	If needle is an empty string, haystack is returned; if needle occurs nowhere in haystack, NULL is
-**	returned; otherwise a pointer to the first character of the first occurrence of needle is returned.
-
-	Error precedence
-	1. Needle is an empty string
-		return haystack
-	2.
-*/
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

@@ -1,14 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 15:53:58 by junng             #+#    #+#             */
+/*   Updated: 2023/04/29 00:20:32 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-/*
-	check if is min int
-		if its min int do something specific
-	else check if its negative
-
-	if its 0 do you turn it into '0'? i think so
-*/
-
-#include <stdio.h>
 
 static int	ft_abs(int i)
 {
@@ -21,14 +23,12 @@ static int	i_len(int i)
 {
 	int	n;
 
-	n = 0;
-	while (i != 0)
+	n = 1;
+	while (i / 10)
 	{
-		i = i / 10;
+		i /= 10;
 		n++;
 	}
-	if (!n)
-		n = 1;
 	return (n);
 }
 

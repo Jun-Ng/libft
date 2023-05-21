@@ -1,10 +1,16 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 16:01:30 by junng             #+#    #+#             */
+/*   Updated: 2023/04/28 18:11:15 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-** Guarantees NULL termination only if there is room
-** User is supposed to include NULL in dstsize
-**
-*/
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

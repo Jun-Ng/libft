@@ -1,13 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 15:54:25 by junng             #+#    #+#             */
+/*   Updated: 2023/04/28 16:02:13 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-/*
-** lst = address of a pointer to the first link of a new list
-** new = the new t_list to add to be BEGINNING of the list
-
-	so probably
-
-	new.next = lst
-*/
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

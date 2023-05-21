@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 17:45:17 by junng             #+#    #+#             */
+/*   Updated: 2023/05/17 19:48:04 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -81,5 +94,36 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*
+** ----- Printf -----
+*/
+
+typedef struct s_flags
+{
+	int	p0x;
+	int	lstart;
+	int	show_sign;
+	int	pad_zeros;
+	int	space;
+	int	min_w;
+	int	precision;
+	int	p_used;
+}	t_flags;
+
+int		ft_printf(const char *fmt, ...);
+
+void	assign_other(t_flags *f, const char **fmt);
+void	assign_f(t_flags *f, const char **fmt);
+void	init_f(t_flags *f);
+
+/* --- PUTS --- */
+
+int		put_d(t_flags *f, int d);
+int		put_c(t_flags *f, int d);
+int		put_s(t_flags *f, char *s);
+int		put_p(t_flags *f, unsigned long n);
+int		put_u(t_flags *f, unsigned int n);
+int		put_x(t_flags *f, unsigned int nb, int cap);
 
 #endif

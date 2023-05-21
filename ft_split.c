@@ -1,20 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 16:01:21 by junng             #+#    #+#             */
+/*   Updated: 2023/04/28 18:11:02 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-/*
-	s = string to be split;
-	c = the delimiter character;
-
-	Flow
-		1. Amount of strings
-		2. Each string's size
-
-	Edge Scenarios
-		if S is not provided
-			just return null terminated array of strings;
-		if C is not provided
-			doesn't matter
-
-*/
 
 static unsigned int	count_elements(char const *s, char c)
 {

@@ -1,6 +1,6 @@
-CFLAGS := -Wall -Wextra -Werror
+NAME := libft.a
 
-OPTIONS := -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror
 
 SRCS := ft_isalpha.c ft_isdigit.c \
 		ft_isalnum.c ft_isascii.c \
@@ -18,19 +18,18 @@ SRCS := ft_isalpha.c ft_isdigit.c \
 		ft_split.c ft_itoa.c \
 		ft_strmapi.c ft_striteri.c \
 		ft_putchar_fd.c ft_putstr_fd.c \
-		ft_putendl_fd.c ft_putnbr_fd.c
-
-LIST_SRCS :=	ft_lstnew.c ft_lstadd_front.c \
-				ft_lstsize.c ft_lstlast.c \
-				ft_lstadd_back.c ft_lstdelone.c \
-				ft_lstclear.c ft_lstmap.c \
-				ft_lstiter.c
+		ft_putendl_fd.c ft_putnbr_fd.c \
+		ft_lstnew.c ft_lstadd_front.c \
+		ft_lstsize.c ft_lstlast.c \
+		ft_lstadd_back.c ft_lstdelone.c \
+		ft_lstclear.c ft_lstmap.c \
+		ft_lstiter.c ft_printf.c \
+		put_c.c put_d.c \
+		put_p.c put_s.c \
+		put_u.c put_x.c \
+		utils.c
 
 OBJS := $(SRCS:.c=.o)
-
-LIST_OBJS := $(LIST_SRCS:.c=.o)
-
-NAME := libft.a
 
 .PHONY := clean fclean re
 
@@ -39,19 +38,13 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $?
 
-$(OBJS): %.o: %.c
-	cc $(CFLAGS) -c $< -o $@ -I/.
+bonus: all
 
 clean:
-	@rm -f $(OBJS) $(LIST_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-bonus: $(LIST_OBJS)
-	ar rcs $(NAME) $?
-
-$(LIST_OBJS): %.o: %.c
-	cc $(CFLAGS) -c $< -o $@ -I/.

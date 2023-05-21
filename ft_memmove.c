@@ -1,46 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junng <junng@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 16:01:08 by junng             #+#    #+#             */
+/*   Updated: 2023/04/28 18:10:40 by junng            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-/*
-	if overlap || len == 0
-		return dst;
-	if (d > s && d - s < len)
-
-	memmove (1, 0, 4);
-	src = | a | b | c | d | e | 0 |
-	dst = 	  | b | c | d | e | 0 | = src + 1
-
-	First iteration len--;
-	src =	| a | a | c | d | e | 0 |
-	dst =		| a | c | d | e | 0 |
-
-	Second iteration len--;
-	src =	| a | a | a | d | e | 0 |
-	dst =		| a | a | d | e | 0 |
-	
-	Eventually becomes
-	dst = | a | a | a | a | not desired output
-
-	To prevent that, start from behind
-	len--;
-	dst[len] = src[len];
-
-	First iteration len = 3;
-	src = | a | b | c | d | d | 0 |
-	dst = 	  | b | c | d | d | 0 |
-
-	Second iteration len = 2;
-	src = | a | b | c | c | d | 0 |
-	dst = 	  | b | c | c | d | 0 |
-
-	l = 1
-	src = | a | b | b | c | d | 0 |
-	dst = 	  | b | b | c | d | 0 |
-
-	l = 0;
-	src = | a | a | b | c | d | 0 |
-	dst = 	  | a | b | c | d | 0 |
-	
-*/
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
